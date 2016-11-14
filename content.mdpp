@@ -1,0 +1,28 @@
+name: inverse
+layout: true
+class: center, inverse
+---
+class: middle, center, inverse
+# C++ internals
+
+##### Francis Visoiu Mistrih - <francis@lse.epita.fr>
+
+---
+
+!INCLUDE "abi.mdpp"
+
+---
+class: middle, center, inverse
+
+#### References
+
+.urls[
+https://mentorembedded.github.io/cxx-abi/abi.html
+]
+
+.footnote[Slideshow created using [remark](http://github.com/gnab/remark).]
+### Any questions?
+
+##### <francis@lse.epita.fr>
+
+.twitter[[@thegameg](https://twitter.com/thegameg)]
