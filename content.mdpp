@@ -12,6 +12,10 @@ class: middle, center, inverse
 !INCLUDE "abi.mdpp"
 
 ---
+
+!INCLUDE "mangling.mdpp"
+
+---
 class: middle, center, inverse
 
 #### References

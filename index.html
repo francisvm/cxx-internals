@@ -185,6 +185,86 @@ class: middle, center, inverse
 * The ABI specifies that `virtual` calls should use a `vtable`
 
 ---
+
+class: middle, center, inverse
+
+### Name mangling
+
+```c
+void foo(int i) {}
+
+void bar(int i) {}
+```
+
+### C
+
+```
+0000000000000010 T bar
+0000000000000000 T foo
+```
+
+### C++
+
+```
+0000000000000010 T _Z3bari
+0000000000000000 T _Z3fooi
+```
+
+---
+class: middle, center, inverse
+
+### Name mangling - Overloading
+
+```c
+void foo(int i) {}
+
+void foo(float i) {}
+```
+
+### C
+
+```
+error: conflicting types for 'foo'
+```
+
+### C++
+
+```
+0000000000000010 T _Z3foof
+0000000000000000 T _Z3fooi
+```
+
+---
+class: middle, center, inverse
+
+### Name mangling - Overloading
+
+## void foo(**int**);
+#_Z3foo**f**
+
+## void foo(**float**);
+#_Z3foo**i**
+
+---
+class: middle, center, inverse
+
+### Name mangling - more
+
+```
+$ c++filt _ZNSt6vectorIiSaIiEEC2Ev
+```
+
+```c++
+std::vector<int, std::allocator<int> >::vector()
+```
+
+* Function, templates, types, operators, namespaces
+
+* vtables, rtti, thunks, ctor, dtor
+
+* decltype, lambdas, member pointers, etc.
+
+---
 class: middle, center, inverse
 
 #### References
