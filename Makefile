@@ -1,5 +1,5 @@
 SRC=index.head content.md index.foot
-SLIDES=content.mdpp abi.mdpp mangling.mdpp
+SLIDES=content.mdpp abi.mdpp mangling.mdpp member.mdpp inheritance.mdpp
 SOURCES=$(shell find sources)
 
 all: index.html
