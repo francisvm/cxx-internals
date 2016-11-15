@@ -135,6 +135,21 @@
       .field img {
         margin-left: -30px;
         max-width: 50%;
+	float: left;
+      }
+      .fieldex {
+	margin-top: 85px;
+	margin-left: 380px;
+	margin-right: 20px;
+      }
+      .sinherit img {
+        width: 50%;
+	float: left;
+      }
+      .sinhex {
+	margin-top: 100px;
+	margin-left: 450px;
+	margin-right: 80px;
       }
 
     </style>
@@ -266,11 +281,13 @@ std::vector<int, std::allocator<int>>::vector()
 
 ---
 
-class: top, center, inverse
+class: middle, center, inverse
 
 # Class members
 
-```c++
+.field[![str](sources/field.svg)]
+
+```fieldex
 struct str {
   str(int field)
     : field_{field} {}
@@ -281,8 +298,6 @@ struct str {
   int field_;
 };
 ```
-
-.field[![str](sources/field.svg)]
 
 ---
 class: middle, center, inverse
@@ -324,6 +339,26 @@ second argument -> %rsi (_new_field_)
 0000000000000000 <str::change_field(int)>:
    0:   89 37                   mov    %esi,(%rdi)
    2:   c3                      retq
+```
+
+---
+
+class: middle, center, inverse
+
+# Simple inheritance
+
+.sinherit[![str](sources/simple-inheritance.svg)]
+
+```sinhex
+struct base
+{
+  int field_;
+};
+
+struct derived : base
+{
+  int field2_;
+};
 ```
 
 ---
