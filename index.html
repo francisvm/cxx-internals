@@ -132,6 +132,10 @@
         font-size: 15pt;
         text-align: center;
       }
+      .field img {
+        margin-left: -30px;
+        max-width: 50%;
+      }
 
     </style>
   </head>
@@ -278,15 +282,39 @@ struct str {
 };
 ```
 
---
+.field[![str](sources/field.svg)]
+
+---
+class: middle, center, inverse
+
+#### Class members
 
 ```c++
-void change_field(str* this, int new_field) {
-  this->field_ = new_field;
+void str::change_field(int new_field) {
+  field_ = new_field;
 }
 ```
 
---
+first argument -> %rdi
+
+second argument -> %rsi
+
+```objdump
+0000000000000000 <str::change_field(int)>:
+   0:   89 37                   mov    %esi,(%rdi)
+   2:   c3                      retq
+```
+
+---
+class: middle, center, inverse
+
+#### Class members
+
+```c++
+void str::change_field(str *this, int new_field) {
+  this->field_ = new_field;
+}
+```
 
 first argument -> %rdi (_this_)
 
