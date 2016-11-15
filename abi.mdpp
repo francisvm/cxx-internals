@@ -1,0 +1,31 @@
+class: middle, center, inverse
+
+## Standard
+
+* Language features
+
+* Standard library
+
+* ISO C++ Committee
+
+---
+class: middle, center, inverse
+
+## ABI
+
+* Specifies an interface between object files
+
+* Implementation details: runtime functions, memory layout, etc.
+
+* Depends on: Plaform, architecture
+
+* N4028 aims at defining a portable ABI
+
+---
+class: middle, center, inverse
+
+## Example
+
+* The standard allows `virtual` member function calls
+
+* The ABI specifies that `virtual` calls should use a `vtable`
