@@ -1,0 +1,17 @@
+class: middle, center, inverse
+
+# Simple inheritance
+
+.sinherit[![str](sources/simple-inheritance.svg)]
+
+```sinhex
+struct base
+{
+  int field_;
+};
+
+struct derived : base
+{
+  int field2_;
+};
+```

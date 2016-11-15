@@ -142,6 +142,15 @@
 	margin-left: 380px;
 	margin-right: 20px;
       }
+      .sinherit img {
+        width: 50%;
+	float: left;
+      }
+      .sinhex {
+	margin-top: 100px;
+	margin-left: 450px;
+	margin-right: 80px;
+      }
 
     </style>
   </head>
