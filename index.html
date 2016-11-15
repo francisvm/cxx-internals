@@ -114,10 +114,6 @@
         margin: 0 auto;
         max-width: 53%;
       }
-      .objdump {
-        margin: 0 auto;
-        max-width: 84%;
-      }
       .asmprinter {
         margin: 0 auto;
         max-width: 80%;
@@ -188,7 +184,119 @@ class: middle, center, inverse
 
 class: middle, center, inverse
 
-##
+### Name mangling
+
+```c
+void foo(int i) {}
+
+void bar(int i) {}
+```
+
+### C
+
+```
+0000000000000010 T bar
+0000000000000000 T foo
+```
+
+### C++
+
+```
+0000000000000010 T _Z3bari
+0000000000000000 T _Z3fooi
+```
+
+---
+class: middle, center, inverse
+
+### Name mangling - Overloading
+
+```c
+void foo(int i) {}
+
+void foo(float i) {}
+```
+
+### C
+
+```
+error: conflicting types for 'foo'
+```
+
+### C++
+
+```
+0000000000000010 T _Z3foof
+0000000000000000 T _Z3fooi
+```
+
+---
+class: middle, center, inverse
+
+### Name mangling - Overloading
+
+## void foo(**int**);
+#_Z3foo**f**
+
+## void foo(**float**);
+#_Z3foo**i**
+
+---
+class: middle, center, inverse
+
+### Name mangling - more
+
+```
+$ c++filt _ZNSt6vectorIiSaIiEEC2Ev
+```
+
+```c++
+std::vector<int, std::allocator<int> >::vector()
+```
+
+* Function, templates, types, operators, namespaces
+
+* vtables, rtti, thunks, ctor, dtor
+
+* decltype, lambdas, member pointers, etc.
+
+---
+
+class: top, center, inverse
+
+# Class members
+
+```c++
+struct str {
+  str(int field)
+    : field_{field} {}
+
+  void change_field(int new_field) {
+    field_ = new_field;
+  }
+  int field_;
+};
+```
+
+--
+
+```c++
+void change_field(str* this, int new_field) {
+  this->field_ = new_field;
+}
+```
+
+--
+
+first argument -> %rdi (_this_)
+
+second argument -> %rsi (_new_field_)
+
+```objdump
+0000000000000000 <str::change_field(int)>:
+   0:   89 37                   mov    %esi,(%rdi)
+   2:   c3                      retq
+```
 
 ---
 class: middle, center, inverse
