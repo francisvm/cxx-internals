@@ -236,10 +236,10 @@ class: middle, center, inverse
 ### Name mangling - Overloading
 
 ## void foo(**int**);
-#_Z3foo**f**
+#_Z3foo**i**
 
 ## void foo(**float**);
-#_Z3foo**i**
+#_Z3foo**f**
 
 ---
 class: middle, center, inverse
@@ -251,7 +251,7 @@ $ c++filt _ZNSt6vectorIiSaIiEEC2Ev
 ```
 
 ```c++
-std::vector<int, std::allocator<int> >::vector()
+std::vector<int, std::allocator<int>>::vector()
 ```
 
 * Function, templates, types, operators, namespaces
