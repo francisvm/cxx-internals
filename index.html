@@ -151,6 +151,18 @@
 	margin-left: 450px;
 	margin-right: 80px;
       }
+      .memptr {
+        width: 50%;
+        float: left;
+      }
+      .memptru {
+        margin-top: 0px;
+	margin-left: 400px;
+      }
+      .memptru2 {
+        margin-top: -17px;
+        margin-left: 400px;
+      }
 
     </style>
   </head>
@@ -295,6 +307,7 @@ struct str {
   void change_field(int new_field) {
     field_ = new_field;
   }
+
   int field_;
 };
 ```
@@ -333,12 +346,48 @@ void str::change_field(str *this, int new_field) {
 
 first argument -> %rdi (_this_)
 
-second argument -> %rsi (_new_field_)
+second argument -> %rsi (_new\_field_)
 
 ```objdump
 0000000000000000 <str::change_field(int)>:
    0:   89 37                   mov    %esi,(%rdi)
    2:   c3                      retq
+```
+
+---
+class: middle, center, inverse
+
+#### Member pointers
+
+```memptr
+struct str
+{
+  int field_;
+
+  int field2_;
+};
+```
+
+```memptru
+int str::*field_ptr = &str::field_;
+int str::*field2_ptr = &str::field2_;
+```
+
+```memptru2
+str s;
+s.*field_ptr = 30;
+s.*field2_ptr = 42;
+```
+
+```center
+A pointer to data member is an offset from the base address of the class object
+containing it, represented as a ptrdiff_t.
+```
+```center
+field_ptr == 0x0
+```
+```center
+field2_ptr == 0x4
 ```
 
 ---
