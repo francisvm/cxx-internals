@@ -151,6 +151,18 @@
 	margin-left: 450px;
 	margin-right: 80px;
       }
+      .memptr {
+        width: 50%;
+        float: left;
+      }
+      .memptru {
+        margin-top: 0px;
+	margin-left: 400px;
+      }
+      .memptru2 {
+        margin-top: -17px;
+        margin-left: 400px;
+      }
 
     </style>
   </head>
