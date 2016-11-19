@@ -149,7 +149,7 @@
       .sinhex {
 	margin-top: 100px;
 	margin-left: 450px;
-	margin-right: 80px;
+	margin-right: 10px;
       }
       .memptr {
         width: 50%;
@@ -163,6 +163,22 @@
         margin-top: -17px;
         margin-left: 400px;
       }
+      .msinherit img {
+        width: 50%;
+	float: left;
+      }
+      .msinhex {
+	margin-top: 100px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
+      .msinhex2 {
+	margin-top: 20px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
 
     </style>
   </head>
@@ -408,6 +424,83 @@ struct derived : base
 {
   int field2_;
 };
+```
+---
+class: middle, center, inverse
+
+# Multiple inheritance
+
+.msinherit[![str](sources/multiple-inheritance.svg)]
+
+```msinhex
+struct base1
+{
+  int field1_;
+};
+
+struct base2
+{
+  int field2_;
+};
+
+
+struct derived : base1, base2
+{
+  int field3_;
+};
+```
+
+---
+class: middle, center, inverse
+
+# Simple inheritance - Cast
+
+.sinherit[![str](sources/simple-inheritance-cast.svg)]
+
+```sinhex
+derived d;
+base *b = &d;
+
+assert((void*)&d == (void*)&b);
+```
+
+---
+class: middle, center, inverse
+
+# Multiple inheritance - Cast
+
+.msinherit[![str](sources/multiple-inheritance-cast1.svg)]
+
+```msinhex
+derived d;
+base1 *b = &d;
+
+assert((void*)&d == (void*)&b);
+```
+
+---
+class: middle, center, inverse
+
+# Multiple inheritance - Cast
+
+.msinherit[![str](sources/multiple-inheritance-cast2.svg)]
+
+```msinhex
+derived d;
+base2 *b = &d;
+
+assert((void*)&d != (void*)&b);
+```
+
+```msinhex2
+push   %rbp
+mov    %rsp,%rbp
+sub    $0x10,%rsp
+*lea    -0xc(%rbp),%rdi
+[...]
+add    $0x10,%rsp
+pop    %rbp
+retq   
 ```
 
 ---
