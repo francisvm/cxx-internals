@@ -1,0 +1,58 @@
+class: middle, center, inverse
+
+# Virtual
+
+.sinherit[![str](sources/virtual-simple.svg)]
+
+```sinhex
+struct base
+{
+  int field_;
+
+  virtual void foo() {}
+};
+```
+
+---
+class: middle, center, inverse
+
+# vtable
+
+![str](sources/virtual-vtable.svg)
+
+---
+class: middle, center, inverse
+
+# Virtual
+
+.sinherit[![str](sources/virtual.svg)]
+
+```sinhex
+struct base
+{
+  int field_;
+
+  virtual void foo() {}
+};
+
+struct derived : base
+{
+  int field2_;
+
+  virtual void foo() {}
+};
+```
+
+---
+class: middle, center, inverse
+
+# Virtual - override
+
+![str](sources/virtual-override-base.svg)
+
+---
+class: middle, center, inverse
+
+# Virtual - override
+
+![str](sources/virtual-override.svg)

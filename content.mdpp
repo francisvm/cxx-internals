@@ -24,6 +24,10 @@ class: middle, center, inverse
 !INCLUDE "inheritance.mdpp"
 
 ---
+
+!INCLUDE "virtual.mdpp"
+
+---
 class: middle, center, inverse
 
 #### References
