@@ -149,7 +149,7 @@
       .sinhex {
 	margin-top: 100px;
 	margin-left: 450px;
-	margin-right: 80px;
+	margin-right: 10px;
       }
       .memptr {
         width: 50%;
@@ -163,6 +163,22 @@
         margin-top: -17px;
         margin-left: 400px;
       }
+      .msinherit img {
+        width: 50%;
+	float: left;
+      }
+      .msinhex {
+	margin-top: 100px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
+      .msinhex2 {
+	margin-top: 20px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
 
     </style>
   </head>
