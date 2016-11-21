@@ -20,7 +20,7 @@ class: middle, center, inverse
 
 # Multiple inheritance
 
-.msinherit[![str](sources/multiple-inheritance.svg)]
+.msinheritl[![str](sources/multiple-inheritance.svg)]
 
 ```msinhex
 struct base1
@@ -59,7 +59,7 @@ class: middle, center, inverse
 
 ## Multiple inheritance - Cast
 
-.msinherit[![str](sources/multiple-inheritance-cast1.svg)]
+.msinheritl[![str](sources/multiple-inheritance-cast1.svg)]
 
 ```msinhex
 derived d;
@@ -73,7 +73,7 @@ class: middle, center, inverse
 
 ## Multiple inheritance - Cast
 
-.msinherit[![str](sources/multiple-inheritance-cast2.svg)]
+.msinheritl[![str](sources/multiple-inheritance-cast2.svg)]
 
 ```msinhex
 derived d;

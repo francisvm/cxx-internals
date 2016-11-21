@@ -167,6 +167,14 @@
         width: 50%;
 	float: left;
       }
+      .msinheritl {
+        width: 50%;
+	float: left;
+      }
+      .msinherit {
+        width: 50%;
+	float: left;
+      }
       .msinhex {
 	margin-top: 100px;
 	margin-left: 450px;
@@ -175,6 +183,23 @@
 
       .msinhex2 {
 	margin-top: 20px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
+      .seventy * {
+        width: 70%;
+      }
+
+      .ninety * {
+        width: 90%;
+      }
+      .sinherit3 img {
+        width: 55%;
+	float: left;
+      }
+      .sinhex3 {
+	margin-top: 40px;
 	margin-left: 450px;
 	margin-right: 10px;
       }
