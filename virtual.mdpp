@@ -46,7 +46,7 @@ struct derived : base
 ---
 class: middle, center, inverse
 
-# Virtual - override
+### vtable - override
 
 ![str](sources/virtual-override-base.svg)
 

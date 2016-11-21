@@ -57,7 +57,7 @@ assert((void*)&d == (void*)&b);
 ---
 class: middle, center, inverse
 
-# Multiple inheritance - Cast
+## Multiple inheritance - Cast
 
 .msinherit[![str](sources/multiple-inheritance-cast1.svg)]
 
@@ -71,7 +71,7 @@ assert((void*)&d == (void*)&b);
 ---
 class: middle, center, inverse
 
-# Multiple inheritance - Cast
+## Multiple inheritance - Cast
 
 .msinherit[![str](sources/multiple-inheritance-cast2.svg)]
 
