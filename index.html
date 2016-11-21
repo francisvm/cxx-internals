@@ -179,6 +179,23 @@
 	margin-right: 10px;
       }
 
+      .seventy * {
+        width: 70%;
+      }
+
+      .ninety * {
+        width: 90%;
+      }
+      .sinherit3 img {
+        width: 55%;
+	float: left;
+      }
+      .sinhex3 {
+	margin-top: 40px;
+	margin-left: 450px;
+	margin-right: 10px;
+      }
+
 
     </style>
   </head>
@@ -467,7 +484,7 @@ assert((void*)&d == (void*)&b);
 ---
 class: middle, center, inverse
 
-# Multiple inheritance - Cast
+## Multiple inheritance - Cast
 
 .msinherit[![str](sources/multiple-inheritance-cast1.svg)]
 
@@ -481,7 +498,7 @@ assert((void*)&d == (void*)&b);
 ---
 class: middle, center, inverse
 
-# Multiple inheritance - Cast
+## Multiple inheritance - Cast
 
 .msinherit[![str](sources/multiple-inheritance-cast2.svg)]
 
@@ -553,16 +570,46 @@ struct derived : base
 ---
 class: middle, center, inverse
 
-# Virtual - override
+### vtable - override
 
-![str](sources/virtual-override-base.svg)
+base *b = new base;
+
+.ninety[![str](sources/virtual-override-base.svg)]
 
 ---
 class: middle, center, inverse
 
-# Virtual - override
+### vtable - override
 
-![str](sources/virtual-override.svg)
+base *b = new derived;
+
+.ninety[![str](sources/virtual-override.svg)]
+
+---
+class: middle, center, inverse
+
+# Virtual - multiple inheritance
+
+.sinherit3[![str](sources/virtual-multiple.svg)]
+
+```sinhex3
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+};
+```
 
 ---
 class: middle, center, inverse
