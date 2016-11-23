@@ -829,6 +829,42 @@ thunk to derived::bar() {
 ```
 
 ---
+
+class: middle, center, inverse
+
+# Object files
+
+#### ELF sections
+
+```
+struct str {                                                             str s;
+  void foo() {}                                                          s.foo();
+  void bar() {}                                                          s.bar();
+};
+```
+
+Sections
+
+```
+[4] .group            GROUP     0  00000140 8  4          13     7     4
+[5] .text._ZN3str3foo PROGBITS  0  00000080 a  0 AXG       0     0     16
+[6] .group            GROUP     0  00000148 8  4          13     6     4
+[7] .text._ZN3str3bar PROGBITS  0  00000090 a  0 AXG       0     0     16
+```
+
+COMDAT
+
+```
+COMDAT group section [4] `.group` [_ZN3str3fooEv] contains 1 sections:
+   [Index]    Name
+   [    5]   .text._ZN3str3fooEv
+
+COMDAT group section [6] `.group` [_ZN3str3barEv] contains 1 sections:
+   [Index]    Name
+   [    7]   .text._ZN3str3barEv
+```
+
+---
 class: middle, center, inverse
 
 #### References
