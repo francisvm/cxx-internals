@@ -167,6 +167,14 @@
         width: 50%;
 	float: left;
       }
+      .msinheritl {
+        width: 50%;
+	float: left;
+      }
+      .msinherit {
+        width: 50%;
+	float: left;
+      }
       .msinhex {
 	margin-top: 100px;
 	margin-left: 450px;
@@ -447,7 +455,7 @@ class: middle, center, inverse
 
 # Multiple inheritance
 
-.msinherit[![str](sources/multiple-inheritance.svg)]
+.msinheritl[![str](sources/multiple-inheritance.svg)]
 
 ```msinhex
 struct base1
@@ -486,7 +494,7 @@ class: middle, center, inverse
 
 ## Multiple inheritance - Cast
 
-.msinherit[![str](sources/multiple-inheritance-cast1.svg)]
+.msinheritl[![str](sources/multiple-inheritance-cast1.svg)]
 
 ```msinhex
 derived d;
@@ -500,7 +508,7 @@ class: middle, center, inverse
 
 ## Multiple inheritance - Cast
 
-.msinherit[![str](sources/multiple-inheritance-cast2.svg)]
+.msinheritl[![str](sources/multiple-inheritance-cast2.svg)]
 
 ```msinhex
 derived d;
@@ -588,9 +596,9 @@ base *b = new derived;
 ---
 class: middle, center, inverse
 
-# Virtual - multiple inheritance
+## Virtual - multiple inheritance
 
-.sinherit3[![str](sources/virtual-multiple.svg)]
+.sinherit3[![str](sources/virtual-multiple0.svg)]
 
 ```sinhex3
 struct base1
@@ -609,6 +617,214 @@ struct derived : base1, base2
 {
   int field3_;
 };
+```
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+.sinherit3[![str](sources/virtual-multiple1.svg)]
+
+```sinhex3
+*struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+};
+```
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+.sinherit3[![str](sources/virtual-multiple2.svg)]
+
+```sinhex3
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+*struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+};
+```
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+.sinherit3[![str](sources/virtual-multiple3.svg)]
+
+```sinhex3
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+*struct derived : base1, base2
+{
+  int field3_;
+};
+```
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+```msinherit
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+};
+```
+
+```msinhex2
+derived d;
+d.bar();
+```
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+```msinherit
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+* virtual void bar() override {}
+};
+```
+
+```msinhex2
+derived d;
+base2 &b = b;
+*b.bar();
+```
+
+--
+
+```msinhex2
+(*b.vptr)(&b);
+
+decltype(b) == base2
+```
+
+--
+
+Inside `derived::bar`
+
+```msinhex2
+this != &d
+```
+
+--
+
+Thunks.
+
+---
+class: middle, center, inverse
+
+## Virtual - multiple inheritance
+
+.sinherit3[![str](sources/virtual-multiple-override.svg)]
+
+```sinhex3
+struct base1
+{
+  int field_;
+  virtual void foo() {}
+};
+
+struct base2
+{
+  int field2_;
+  virtual void bar() {}
+};
+
+struct derived : base1, base2
+{
+  int field3_;
+* void bar() override {}
+};
+```
+
+---
+class: middle, center, inverse
+
+## Thunks
+
+.sinherit3[![str](sources/virtual-multiple-override.svg)]
+
+```sinhex3
+thunk to derived::bar()
+```
+
+```sinhex3
+addq  $-16, %rdi
+jmp   derived::bar()
+```
+
+```sinhex3
+thunk to derived::bar() {
+  this -= 16
+  derived::bar(this)
+}
 ```
 
 ---
