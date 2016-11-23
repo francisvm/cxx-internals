@@ -28,6 +28,10 @@ class: middle, center, inverse
 !INCLUDE "virtual.mdpp"
 
 ---
+
+!INCLUDE "object.mdpp"
+
+---
 class: middle, center, inverse
 
 #### References
