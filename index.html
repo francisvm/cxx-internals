@@ -320,6 +320,7 @@ class: middle, center, inverse
 
 ```
 $ c++filt _ZNSt6vectorIiSaIiEEC2Ev
+$ llvm-cxxfilt _ZNSt6vectorIiSaIiEEC2Ev
 ```
 
 ```c++
@@ -571,7 +572,7 @@ struct derived : base
 {
   int field2_;
 
-  virtual void foo() {}
+  void foo() override {}
 };
 ```
 
