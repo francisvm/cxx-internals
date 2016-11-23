@@ -64,6 +64,7 @@ class: middle, center, inverse
 
 ```
 $ c++filt _ZNSt6vectorIiSaIiEEC2Ev
+$ llvm-cxxfilt _ZNSt6vectorIiSaIiEEC2Ev
 ```
 
 ```c++
