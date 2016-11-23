@@ -39,7 +39,7 @@ struct derived : base
 {
   int field2_;
 
-  virtual void foo() {}
+  void foo() override {}
 };
 ```
 
