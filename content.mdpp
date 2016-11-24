@@ -34,6 +34,14 @@ class: middle, center, inverse
 ---
 class: middle, center, inverse
 
+# More
+
+Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables, statics,
+ABI runtime support, new/delete, dynamic_cast, etc.
+
+---
+class: middle, center, inverse
+
 #### References
 
 .urls[
