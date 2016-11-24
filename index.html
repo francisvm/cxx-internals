@@ -867,6 +867,143 @@ COMDAT group section [6] `.group` [_ZN3str3barEv] contains 1 sections:
 ---
 class: middle, center, inverse
 
+# Object files
+
+#### Symbols
+
+```
+struct str {
+  void foo() {}
+  void bar() {}
+};
+```
+
+```
+nm -C
+```
+
+```
+0000000000000000 W str::bar()
+0000000000000000 W str::foo()
+```
+
+```
+When a weak defined symbol is linked with a normal defined symbol, the normal
+defined symbol is used with no error.
+```
+
+---
+class: middle, center, inverse
+
+# Object files
+
+#### Symbols
+
+```
+struct str {
+  void foo();
+  void bar();
+};
+
+void str::foo() {};
+void str::bar() {};
+```
+
+```
+nm -C
+```
+
+```
+0000000000000040 T str::bar()
+0000000000000030 T str::foo()
+```
+
+ODR: one definition rule
+
+---
+class: middle, center, inverse
+
+# Object files
+
+#### Symbols
+
+```
+template <typename T>
+struct str {
+  T foo();
+};
+
+template <typename T>
+T str<T>::foo() {
+  return {};
+}
+```
+
+```
+str<int> s;
+s.foo();
+```
+
+```
+0000000000000000 W str<int>::foo()
+```
+
+Templates are weak.
+
+---
+class: middle, center, inverse
+
+# Where is the vtable ?
+
+* In the code segment (read + executable)
+
+* Avoid runtime modifications
+
+```center
+The virtual table for a class is emitted in the same object containing the
+definition of its key function
+```
+
+---
+class: middle, center, inverse
+
+```center
+The virtual table for a class is emitted in the same object containing the
+definition of its key function
+```
+
+### Key function
+
+* The first non-pure virtual function that is not inline
+
+```
+struct str {
+  virtual void foo() {}
+* virtual void bar();
+};
+
+*void str::bar() {}
+```
+
+* If there is no key function, it is emitted everywhere used
+
+```
+struct str {
+  virtual void foo() {}
+};
+```
+
+---
+class: middle, center, inverse
+
+# More
+
+Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables, statics,
+ABI runtime support, new/delete, dynamic_cast, etc.
+
+---
+class: middle, center, inverse
+
 #### References
 
 .urls[
