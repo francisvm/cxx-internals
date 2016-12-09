@@ -191,7 +191,8 @@ struct derived : base1, base2
 
 ```msinhex2
 derived d;
-d.bar();
+base2 &b = b;
+*b.bar();
 ```
 
 ---
@@ -228,9 +229,9 @@ base2 &b = b;
 --
 
 ```msinhex2
-(*b.vptr)(&b);
+b.vptr[0](&b);
 
-decltype(b) == base2
+decltype(b) == base2&
 ```
 
 --
