@@ -71,7 +71,7 @@ $ llvm-cxxfilt _ZNSt6vectorIiSaIiEEC2Ev
 std::vector<int, std::allocator<int>>::vector()
 ```
 
-* Function, templates, types, operators, namespaces
+* Functions, templates, types, operators, namespaces
 
 * vtables, rtti, thunks, ctor, dtor
 

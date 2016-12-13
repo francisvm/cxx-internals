@@ -17,9 +17,11 @@ class: middle, center, inverse
 
 * Implementation details: runtime functions, memory layout, etc.
 
-* Depends on: Plaform, architecture
+* Depends on: Platform, architecture
 
 * N4028 aims at defining a portable ABI
+
+* We'll focus on the Itanium C++ ABI.
 
 ---
 class: middle, center, inverse

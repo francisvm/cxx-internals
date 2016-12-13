@@ -20,18 +20,6 @@ Sections
 [7] .text._ZN3str3bar PROGBITS  0  00000090 a  0 AXG       0     0     16
 ```
 
-COMDAT
-
-```
-COMDAT group section [4] `.group` [_ZN3str3fooEv] contains 1 sections:
-   [Index]    Name
-   [    5]   .text._ZN3str3fooEv
-
-COMDAT group section [6] `.group` [_ZN3str3barEv] contains 1 sections:
-   [Index]    Name
-   [    7]   .text._ZN3str3barEv
-```
-
 ---
 class: middle, center, inverse
 

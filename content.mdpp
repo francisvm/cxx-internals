@@ -36,7 +36,7 @@ class: middle, center, inverse
 
 # More
 
-Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables, statics,
+Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables,
 ABI runtime support, new/delete, dynamic_cast, etc.
 
 ---
@@ -45,6 +45,7 @@ class: middle, center, inverse
 #### References
 
 .urls[
+https://lse.epita.fr/data/misc/cpp_internals.pdf
 https://mentorembedded.github.io/cxx-abi/abi.html
 ]
 
