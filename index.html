@@ -239,9 +239,11 @@ class: middle, center, inverse
 
 * Implementation details: runtime functions, memory layout, etc.
 
-* Depends on: Plaform, architecture
+* Depends on: Platform, architecture
 
 * N4028 aims at defining a portable ABI
+
+* We'll focus on the Itanium C++ ABI.
 
 ---
 class: middle, center, inverse
@@ -327,7 +329,7 @@ $ llvm-cxxfilt _ZNSt6vectorIiSaIiEEC2Ev
 std::vector<int, std::allocator<int>>::vector()
 ```
 
-* Function, templates, types, operators, namespaces
+* Functions, templates, types, operators, namespaces
 
 * vtables, rtti, thunks, ctor, dtor
 
@@ -853,18 +855,6 @@ Sections
 [7] .text._ZN3str3bar PROGBITS  0  00000090 a  0 AXG       0     0     16
 ```
 
-COMDAT
-
-```
-COMDAT group section [4] `.group` [_ZN3str3fooEv] contains 1 sections:
-   [Index]    Name
-   [    5]   .text._ZN3str3fooEv
-
-COMDAT group section [6] `.group` [_ZN3str3barEv] contains 1 sections:
-   [Index]    Name
-   [    7]   .text._ZN3str3barEv
-```
-
 ---
 class: middle, center, inverse
 
@@ -999,7 +989,7 @@ class: middle, center, inverse
 
 # More
 
-Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables, statics,
+Virtual-base inheritance, exceptions, SEH, RTTI, unwind tables,
 ABI runtime support, new/delete, dynamic_cast, etc.
 
 ---
@@ -1008,6 +998,7 @@ class: middle, center, inverse
 #### References
 
 .urls[
+https://lse.epita.fr/data/misc/cpp_internals.pdf
 https://mentorembedded.github.io/cxx-abi/abi.html
 ]
 
